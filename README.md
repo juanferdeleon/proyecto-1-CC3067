@@ -4,7 +4,7 @@
 
 Creado por:
 
-- (Juan Fernando De Leon Quezada)[https://github.com/juanferdeleon]
+- [Juan Fernando De Leon Quezada](https://github.com/juanferdeleon)
 
 El proyecto consiste en un cliente que soporta el protocolo XMPP. Este cuenta con las siguientes características:
 
