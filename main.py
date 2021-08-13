@@ -96,11 +96,6 @@ if __name__ == '__main__':
                     print("\n\t\tListado de contactos\n")
 
                     xmpp = ListClients(jid, password)
-                
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0199') # XMPP Ping
-                    xmpp.register_plugin('xep_0045') # Mulit-User Chat (MUC)
-                    xmpp.register_plugin('xep_0096') # Jabber Search
                     
                     xmpp.connect()
                     xmpp.process(forever=False)
@@ -118,11 +113,6 @@ if __name__ == '__main__':
 
                     xmpp = SubscribeClient(jid, password, new_contact)
                     
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0199') # XMPP Ping
-                    xmpp.register_plugin('xep_0045') # Mulit-User Chat (MUC)
-                    xmpp.register_plugin('xep_0096') # Jabber Search
-                    
                     xmpp.connect()
                     xmpp.process(forever=False)
 
@@ -138,11 +128,6 @@ if __name__ == '__main__':
                     see_contact = input("Ingresa nombre de contacto: ")
 
                     xmpp = ListClients(jid, password, see_contact)
-
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0199') # XMPP Ping
-                    xmpp.register_plugin('xep_0045') # Mulit-User Chat (MUC)
-                    xmpp.register_plugin('xep_0096') # Jabber Search
             
                     xmpp.connect()
                     xmpp.process(forever=False)
@@ -162,11 +147,6 @@ if __name__ == '__main__':
 
                     xmpp = SendMsg(jid, password, text_contact, msg)
                 
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0199') # XMPP Ping
-                    xmpp.register_plugin('xep_0045') # Mulit-User Chat (MUC)
-                    xmpp.register_plugin('xep_0096') # Jabber Search
-                
                     xmpp.connect()
                     xmpp.process(forever=False)
 
@@ -183,10 +163,6 @@ if __name__ == '__main__':
 
                     xmpp = MUC(jid, password, rjid, alias)
 
-                    xmpp.register_plugin('xep_0030')
-                    xmpp.register_plugin('xep_0045')
-                    xmpp.register_plugin('xep_0199')
-
                     xmpp.connect()
                     xmpp.process(forever=False)
                 
@@ -200,11 +176,6 @@ if __name__ == '__main__':
                     presence_msg = input("Mensaje de presencia: ")
 
                     xmpp = ListClients(jid, password, presence_msg=presence_msg)
-
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0199') # XMPP Ping
-                    xmpp.register_plugin('xep_0045') # Mulit-User Chat (MUC)
-                    xmpp.register_plugin('xep_0096') # Jabber Search
 
                     xmpp.connect()
                     xmpp.process(forever=False)
@@ -220,9 +191,6 @@ if __name__ == '__main__':
                     path = input("Ingresa path del archivo: ")
 
                     xmpp = SendFile(jid, password, text_contact, path)
-
-                    xmpp.register_plugin('xep_0030') # Service Discovery
-                    xmpp.register_plugin('xep_0065') # SOCKS5 Bytestreams
 
                     # Connect to the XMPP server and start processing XMPP stanzas.
                     xmpp.connect()

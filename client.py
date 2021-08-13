@@ -30,6 +30,11 @@ class ListClients(slixmpp.ClientXMPP):
         self.user_details = None
         self.presence_msg = presence_msg
 
+        self.register_plugin('xep_0030') # Service Discovery
+        self.register_plugin('xep_0199') # XMPP Ping
+        self.register_plugin('xep_0045') # Mulit-User Chat (MUC)
+        self.register_plugin('xep_0096') # Jabber Search
+
     async def start(self, event):
         #Send presence
         self.send_presence()
@@ -116,6 +121,12 @@ class SubscribeClient(slixmpp.ClientXMPP):
         self.add_event_handler("session_start", self.start)
         self.new_contact = new_contact
 
+        self.register_plugin('xep_0030') # Service Discovery
+        self.register_plugin('xep_0199') # XMPP Ping
+        self.register_plugin('xep_0045') # Mulit-User Chat (MUC)
+        self.register_plugin('xep_0096') # Jabber Search
+
+
     async def start(self, event):
         self.send_presence()
         await self.get_roster()
@@ -140,6 +151,11 @@ class SendMsg(slixmpp.ClientXMPP):
         #Handle events
         self.add_event_handler("session_start", self.start)
         self.add_event_handler("message", self.msg)
+
+        self.register_plugin('xep_0030') # Service Discovery
+        self.register_plugin('xep_0199') # XMPP Ping
+        self.register_plugin('xep_0045') # Mulit-User Chat (MUC)
+        self.register_plugin('xep_0096') # Jabber Search
 
     async def start(self, event):
         #Send presence
@@ -185,6 +201,10 @@ class MUC(slixmpp.ClientXMPP):
         self.add_event_handler("muc::%s::got_online" % self.rjid,
                                self.muc_online)
 
+        self.register_plugin('xep_0030')
+        self.register_plugin('xep_0045')
+        self.register_plugin('xep_0199')
+
     async def start(self, event):
         #Send events
         await self.get_roster()
@@ -227,6 +247,10 @@ class SendFile(slixmpp.ClientXMPP):
         self.file = open(filename, 'rb')
 
         self.add_event_handler("session_start", self.start)
+
+        self.register_plugin('xep_0030') # Service Discovery
+        self.register_plugin('xep_0065') # SOCKS5 Bytestreams
+
 
     async def start(self, event):
         try:
@@ -280,5 +304,5 @@ class DeleteAccount(slixmpp.ClientXMPP):
             print('Error: Request timed out')
         except Exception as e:
             print(e)  
-            
+
         self.disconnect()
