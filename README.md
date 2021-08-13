@@ -20,3 +20,9 @@ El proyecto consiste en un cliente que soporta el protocolo XMPP. Este cuenta co
 - Definir mensaje de presencia
 - Enviar/recibir notificaciones
 - Enviar/recibir archivos
+
+Para correr el programa se recomienda tener instalado [Python 3.7.0](https://www.python.org/downloads/release/python-370/). Ir al directorio donde se encuentren los archivos y correr el script [main.py](./main.py)siguiente comando:
+
+```
+python main.py
+```
