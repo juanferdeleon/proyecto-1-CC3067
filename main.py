@@ -46,10 +46,6 @@ if __name__ == '__main__':
             # have interdependencies, the order in which you register them does
             # not matter.
             xmpp = Register(jid, password)
-            xmpp.register_plugin('xep_0030') # Service Discovery
-            xmpp.register_plugin('xep_0004') # Data forms
-            xmpp.register_plugin('xep_0066') # Out-of-band Data
-            xmpp.register_plugin('xep_0077') # In-band Registration
 
             # Some servers don't advertise support for inband registration, even
             # though they allow it. If this applies to your server, use:
